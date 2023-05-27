@@ -1,21 +1,28 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
 )
 
-func homePage(w http.ResponseWriter, r *http.Request){
-    fmt.Fprintf(w, "Welcome Abinash Patnaik !")
-    fmt.Println("Endpoint Hit: homePage")
+type Simple struct {
+	Name        string
+	Description string
+	Url         string
 }
 
-func handleRequests() {
-    http.HandleFunc("/", homePage)
-    log.Fatal(http.ListenAndServe(":9001", nil))
+func handler(w http.ResponseWriter, r *http.Request) {
+	simple := Simple{"Hello", "World", r.Host}
+
+	jsonOutput, _ := json.Marshal(simple)
+
+	fmt.Fprintln(w, string(jsonOutput))
 }
 
 func main() {
-    handleRequests()
+	fmt.Println("Server started on port 4444")
+	http.HandleFunc("/api", handler)
+	log.Fatal(http.ListenAndServe(":4444", nil))
 }
