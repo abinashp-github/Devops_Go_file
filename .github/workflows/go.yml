@@ -25,6 +25,6 @@ jobs:
       run: go build main.go
       
     - name: Deploy
-      run: go run main.go
+      run: nohup go run main.go 2>&1 &
   
   
