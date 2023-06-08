@@ -18,4 +18,5 @@ func handleRequests() {
 
 func main() {
     handleRequests()
+    fmt.Println("Welcome Tomasso Amorossi !")
 }
