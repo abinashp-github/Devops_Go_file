@@ -23,5 +23,21 @@ jobs:
 
     - name: Build
       run: go build main.go
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build] # Only run this workflow when "build" workflow succeeds
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    # Deploy to Docker registry
+    - name: Deploy to Docker registry
+      uses: docker/build-push-action@v1
+      with:
+        username: abinashpatnaik1992
+        password: Veronika123$
+        repository: abinashpatnaik1992/ghaction
+        tag_with_ref: true
 
 
