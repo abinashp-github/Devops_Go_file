@@ -33,10 +33,10 @@ jobs:
 
     # Deploy to Docker registry
     - name: Deploy to Docker registry
-      uses: docker/build-push-action@v1
+      uses: docker/build-push-action@v2
       with:
         username: abinashpatnaik1992
-        password: Veronika123$
+        password: ${{ secrets.DOCKER_PASSWORD }}
         repository: abinashpatnaik1992/ghaction
         tag_with_ref: true
 
