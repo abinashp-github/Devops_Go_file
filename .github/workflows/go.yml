@@ -29,7 +29,7 @@ jobs:
     needs: [build] # Only run this workflow when "build" workflow succeeds
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     # Deploy to Docker registry
     - name: Deploy to Docker registry
