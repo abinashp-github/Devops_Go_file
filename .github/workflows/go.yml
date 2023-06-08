@@ -23,16 +23,8 @@ jobs:
 
     - name: Build
       run: go build main.go
-  
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build] # Only run this workflow when "build" workflow succeeds
-    
-    steps:
-    - uses: actions/checkout@v3
-
-    # Deploy to Docker registry
-    - name: deploy
+      
+    - name: Deploy
       run: go run main.go
-
-
+  
+  
