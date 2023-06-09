@@ -32,7 +32,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Deploy in EC2
-        uses: easingthemes/ssh-deploy@main
         env:
             PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
             HOSTNAME : ${{ secrets.HOSTNAME  }}
